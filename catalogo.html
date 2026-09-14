@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passgro | Catálogo de abonos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="catalogo-section">
+    <div class="wrap">
+      <div class="catalog-layout">
+        <div class="catalog-sidebar-container">
+          <aside class="catalog-sidebar">
+          <h3>Categorías</h3>
+          <div class="cat-list" id="filters"></div>
+          <h3 class="sidebar-subhead">Ordenar por precio</h3>
+          <div class="sort-filters" id="sortFilters"></div>
+        </aside>
+        </div>
+        <div class="catalog-main">
+          <div class="catalog-main-head">
+            <div>
+              <h2 id="catalogTitle">Todos los productos</h2>
+              <p id="catalogCount">Cargando…</p>
+            </div>
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="search" id="searchInput" placeholder="Buscar producto…">
+            </div>
+          </div>
+          <div class="product-grid" id="productGrid"></div>
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/session.js"></script>
+<script src="js/cart-store.js"></script>
+<script src="js/api.js"></script>
+<script src="js/components.js"></script>
+<script src="js/catalogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.auth-section{padding:56px 0 80px; display:flex; justify-content:center; padding-inline:16px;}
+.auth-wrap{width:100%; max-width:440px;}
+.auth-card{
+  background:var(--blanco); border:1px solid var(--linea); border-radius:16px;
+  box-shadow:var(--sombra); padding:30px 28px; width:100%; max-width:440px;
+}
+.auth-card h1{font-size:1.3rem; font-weight:600; margin-bottom:20px; text-align:center;}
+.tabs{display:flex; gap:6px; background:var(--crema); border-radius:9px; padding:4px; margin-bottom:22px;}
+.tab-btn{flex:1; padding:9px; border-radius:7px; font-size:.85rem; font-weight:600; color:#7a7258;}
+.tab-btn.active{background:var(--blanco); color:var(--suelo); box-shadow:0 1px 4px rgba(0,0,0,.08);}

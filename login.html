@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passgro | Iniciar sesión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="auth-section">
+    <div class="auth-wrap">
+      <a href="index.html" class="back-link">← Volver</a>
+      <div class="auth-card">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="login">Iniciar sesión</button>
+        <button class="tab-btn" data-tab="register">Crear cuenta</button>
+      </div>
+      <form id="loginForm">
+        <div class="field"><label>Correo electrónico</label><input type="email" id="loginEmail" required placeholder="tucorreo@ejemplo.com"></div>
+        <div class="field"><label>Contraseña</label><input type="password" id="loginPass" required placeholder="••••••••" minlength="4"></div>
+        <button type="submit" class="btn btn-dark btn-block">Entrar</button>
+      </form>
+      <form id="registerForm" style="display:none;">
+        <div class="field"><label>Nombre</label><input type="text" id="regName" required placeholder="Tu nombre"></div>
+        <div class="field"><label>Correo electrónico</label><input type="email" id="regEmail" required placeholder="tucorreo@ejemplo.com"></div>
+        <div class="field"><label>Contraseña</label><input type="password" id="regPass" required placeholder="Mínimo 4 caracteres" minlength="4"></div>
+        <button type="submit" class="btn btn-primary btn-block">Crear cuenta</button>
+      </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/session.js"></script>
+<script src="js/cart-store.js"></script>
+<script src="js/api.js"></script>
+<script src="js/components.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

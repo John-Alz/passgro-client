@@ -1,0 +1,19 @@
+.producto-section{padding:48px 0 72px;}
+.producto-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:start;}
+.producto-photo{
+  aspect-ratio:4/3; background:linear-gradient(160deg, #EFE9D6, #E3DCC4);
+  border-radius:16px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+}
+.producto-photo img{width:100%; height:100%; object-fit:cover;}
+.producto-photo svg{width:120px; height:120px;}
+.producto-info h1{font-size:clamp(1.5rem,3vw,2rem); font-weight:600; margin-bottom:12px;}
+.producto-info .npk{margin-bottom:14px;}
+.producto-info .price{font-size:1.6rem; margin:16px 0 4px;}
+.producto-info .desc{color:#5B5343; margin:16px 0 24px; line-height:1.65;}
+.qty-selector{display:flex; align-items:center; gap:14px; margin-bottom:22px;}
+.qty-selector .qty-btn{width:36px; height:36px; border-radius:8px; background:var(--crema); border:1px solid var(--linea); font-weight:700; font-size:1.1rem;}
+.qty-selector .qty-val{font-family:'JetBrains Mono',monospace; font-size:1.05rem; min-width:24px; text-align:center;}
+
+@media (max-width: 860px){
+  .producto-grid{grid-template-columns:1fr;}
+}

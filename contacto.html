@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passgro | Contáctanos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="contacto-section">
+    <div class="wrap">
+      <div class="section-head">
+        <h1>Contáctanos</h1>
+        <p>Nos encantaría escucharte — seas cliente, productor o aliado.</p>
+      </div>
+
+      <div class="contacto-grid">
+        <div class="contacto-form-card" id="contactoFormCard">
+          <form id="contactoForm">
+            <h3>Envíanos un mensaje</h3>
+            <div class="field"><label>Tu nombre</label><input type="text" id="cName" required placeholder="Juan Pérez"></div>
+            <div class="field"><label>Correo electrónico</label><input type="email" id="cEmail" required placeholder="juan@ejemplo.com"></div>
+            <div class="field"><label>Teléfono</label><input type="tel" id="cPhone" required placeholder="300 123 4567"></div>
+            <div class="field"><label>Mensaje</label><textarea id="cMessage" rows="4" required placeholder="¿En qué te podemos ayudar?"></textarea></div>
+            <button type="submit" class="btn btn-dark btn-block">Enviar mensaje</button>
+          </form>
+        </div>
+
+        <div class="contacto-info">
+          <div class="info-card">
+            <div class="info-icon">📧</div>
+            <div>
+              <h4>Escríbenos</h4>
+              <p class="info-main">contacto@passgro.co</p>
+              <p class="info-sub">Respondemos en menos de 24 horas</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📞</div>
+            <div>
+              <h4>Llámanos</h4>
+              <p class="info-main">322 302 5678</p>
+              <p class="info-sub">Lunes a sábado, 8 AM a 5 PM</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div>
+              <h4>Nuestra sede</h4>
+              <p class="info-main">Ubalá, Cundinamarca</p>
+              <p class="info-sub">Zona rural · visitas con cita previa</p>
+            </div>
+          </div>
+
+          <div class="contacto-map">
+            <img src="https://images.unsplash.com/photo-1589483233144-795633bf597c?w=600&h=200&fit=crop&auto=format" alt="Ubalá, Cundinamarca">
+            <div class="contacto-map-pin">
+              <div>📍</div>
+              <p>Ubalá, Cundinamarca</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/session.js"></script>
+<script src="js/cart-store.js"></script>
+<script src="js/api.js"></script>
+<script src="js/components.js"></script>
+<script src="js/contacto.js"></script>
+</body>
+</html>

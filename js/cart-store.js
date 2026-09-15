@@ -25,7 +25,7 @@
       if (cart[id]) {
         cart[id].cantidad += cantidad;
       } else {
-        cart[id] = { id, nombre: producto.nombre, precio: producto.precio, cantidad };
+        cart[id] = { id, nombre: producto.nombre, precio: producto.precio, imagenUrl: producto.imagenUrl || null, cantidad };
       }
       save(cart);
     },

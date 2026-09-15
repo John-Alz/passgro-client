@@ -23,9 +23,16 @@
       <div class="carrito-grid">
         <div class="cart-list" id="cartItems"></div>
         <div class="cart-summary">
-          <h3>Resumen</h3>
-          <div class="subtotal-row"><span>Subtotal</span><b class="mono" id="cartSubtotal">$0</b></div>
-          <button class="btn btn-primary btn-block" id="checkoutBtn">Proceder al pago</button>
+          <h3>Resumen del pedido</h3>
+          <div class="summary-lines">
+            <div class="summary-row"><span>Subtotal (<span id="cartItemCount">0</span> productos)</span><span id="cartSubtotal">$0</span></div>
+          </div>
+          <div class="summary-total">
+            <span>Total</span>
+            <span id="cartTotal">$0</span>
+          </div>
+          <button class="btn btn-primary btn-block" id="checkoutBtn">Proceder al pago →</button>
+          <a href="catalogo.html" class="continue-shopping">Seguir comprando</a>
         </div>
       </div>
     </div>

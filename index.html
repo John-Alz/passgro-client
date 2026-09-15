@@ -15,6 +15,7 @@
 
 <main id="top">
   <section class="hero">
+    <img src="https://images.unsplash.com/photo-1591586116988-62fe65164f8d?w=1400&h=600&fit=crop&auto=format" alt="" class="hero-bg-image">
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">● Del productor directo a tu finca</span>
@@ -45,57 +46,104 @@
     </div>
   </section>
 
-  <section id="por-que">
+  <!-- CATEGORIAS -->
+  <section class="home-categories">
     <div class="wrap">
       <div class="section-head">
-        <span class="tag">Por qué Passgro</span>
-        <h2>Tres razones para comprar directo</h2>
-        <p>No somos una agrotienda más. Somos el puente más corto entre el abono y tu cultivo.</p>
+        <span class="tag">Categorías</span>
+        <h2>Compra por categoría</h2>
+        <p>Encuentra justo lo que necesita tu cultivo.</p>
       </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="num">01</div>
-          <h3>Precio justo</h3>
-          <p>Sin margen de mayorista ni de distribuidor. Verás el mismo precio que negociamos con el productor, más nuestro margen mínimo de operación.</p>
+      <div class="category-grid">
+        <a href="catalogo.html?cat=compost" class="category-card" style="background:#e8f5e2; border-color:#3d7a34;">
+          <span class="cat-emoji">🌱</span>
+          <span>Compost</span>
+        </a>
+        <a href="catalogo.html?cat=estiercol_guano" class="category-card" style="background:#fff0e6; border-color:#b45309;">
+          <span class="cat-emoji">🐄</span>
+          <span>Estiércol y Guano</span>
+        </a>
+        <a href="catalogo.html?cat=mejorador_suelo" class="category-card" style="background:#fef9e6; border-color:#d97706;">
+          <span class="cat-emoji">🪨</span>
+          <span>Mejoradores de Suelo</span>
+        </a>
+        <a href="catalogo.html?cat=liquido_concentrado" class="category-card" style="background:#f0f4ff; border-color:#6366f1;">
+          <span class="cat-emoji">💧</span>
+          <span>Líquidos Concentrados</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <section class="home-featured">
+    <div class="wrap">
+      <div class="home-featured-head">
+        <div>
+          <span class="tag">Destacados</span>
+          <h2>Productos destacados</h2>
+          <p>Una selección al azar de nuestro catálogo.</p>
         </div>
-        <div class="why-card">
-          <div class="num">02</div>
-          <h3>Trazabilidad</h3>
-          <p>Cada bulto indica su composición NPK, origen y lote. Sabes exactamente qué le estás echando a tu tierra.</p>
-        </div>
-        <div class="why-card">
-          <div class="num">03</div>
-          <h3>Entrega directa</h3>
-          <p>Coordinamos el envío desde bodega hasta tu finca o punto de acopio, sin pasar por intermediarios logísticos.</p>
+        <a href="catalogo.html" class="btn btn-dark">Ver todos</a>
+      </div>
+      <div class="product-grid" id="featuredGrid">
+        <div class="state-box">
+          <div class="spinner"></div>
+          <p>Cargando productos…</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact-band" id="contacto">
-    <div class="wrap contact-grid">
-      <div>
-        <span class="eyebrow" style="margin-bottom:14px;">Hablemos</span>
-        <h2>¿Dudas sobre un pedido grande o un cultivo específico?</h2>
-        <p>Nuestro equipo agronómico responde directo, sin líneas de call center. Escríbenos y te asesoramos según tu cultivo y extensión.</p>
+  <!-- POR QUE PASSGRO -->
+  <section id="por-que">
+    <div class="wrap">
+      <div class="section-head" style="margin-left:auto; margin-right:auto; text-align:center;">
+        <span class="tag">Por qué Passgro</span>
+        <h2>Cuatro razones para comprar directo</h2>
+        <p>No somos una agrotienda más. Somos el puente más corto entre el abono y tu cultivo.</p>
       </div>
-      <div class="contact-boxes">
-        <div class="whatsapp-box">
-          <span class="tag">Línea directa</span>
-          <div class="whatsapp-number">322 302 5678</div>
-          <a href="https://wa.me/573223025678" target="_blank" class="btn btn-primary btn-block">Escribir por WhatsApp</a>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">✅</div>
+          <h3>Calidad garantizada</h3>
+          <p>Cada bulto se verifica antes de salir de bodega, con su ficha técnica NPK a la vista.</p>
         </div>
-        <div class="instagram-box">
-          <img src="assets/img/instagram.jpg" alt="Passgro en Instagram">
-          <div>
-            <span class="tag">Síguenos</span>
-            <div class="ig-handle">@passgro</div>
-            <a href="https://www.instagram.com/passgro?igsi=MXNrcHhjMm81NTlscw==" target="_blank" class="btn btn-outline">Ver en Instagram</a>
-          </div>
+        <div class="why-card">
+          <div class="why-icon">🌾</div>
+          <h3>Directo del productor</h3>
+          <p>Sin bodegas intermedias ni mayoristas. Del productor a tu finca.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <h3>Precio justo</h3>
+          <p>Márgenes mínimos de operación. Ves el mismo precio que negociamos con el productor.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h3>Apoyo al campo</h3>
+          <p>Cada compra sostiene directamente a un productor local aliado.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- BANNER PRODUCTORES -->
+  <section class="banner-producers">
+    <div class="wrap">
+      <div class="partner-banner">
+        <img src="https://images.unsplash.com/photo-1551649001-7a2482d98d05?w=1200&h=300&fit=crop&auto=format" alt="" class="partner-bg-image">
+        <div class="partner-content">
+          <div>
+            <h3>¿Eres productor?</h3>
+            <p>Únete a Passgro y vende directo a cientos de agricultores.</p>
+          </div>
+          <a href="contacto.html" class="btn">Contáctanos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div id="site-footer"></div>
@@ -104,5 +152,6 @@
 <script src="js/cart-store.js"></script>
 <script src="js/api.js"></script>
 <script src="js/components.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>

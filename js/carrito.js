@@ -1,6 +1,8 @@
 (function () {
   const itemsEl = document.getElementById("cartItems");
   const subtotalEl = document.getElementById("cartSubtotal");
+  const itemCountEl = document.getElementById("cartItemCount");
+  const totalEl = document.getElementById("cartTotal");
   const checkoutBtn = document.getElementById("checkoutBtn");
 
   function render() {
@@ -13,17 +15,19 @@
     } else {
       itemsEl.innerHTML = entries.map((item) => `
         <div class="cart-item">
-          <div class="thumb">${PassgroUI.sackSvg()}</div>
+          <div class="thumb">${item.imagenUrl ? `<img src="${item.imagenUrl}" alt="${item.nombre}">` : PassgroUI.sackSvg()}</div>
           <div class="cart-item-info">
             <h4>${item.nombre}</h4>
             <div class="qty-row">
               <button class="qty-btn" data-act="minus" data-id="${item.id}">−</button>
               <span class="qty-val">${item.cantidad}</span>
               <button class="qty-btn" data-act="plus" data-id="${item.id}">+</button>
-              <span class="remove-link" data-id="${item.id}">Quitar</span>
             </div>
           </div>
-          <div class="item-price">${PassgroUI.fmt(item.precio * item.cantidad)}</div>
+          <div class="item-price-col">
+            <div class="item-price">${PassgroUI.fmt(item.precio * item.cantidad)}</div>
+            <span class="remove-link" data-id="${item.id}">Quitar</span>
+          </div>
         </div>
       `).join("");
       itemsEl.querySelectorAll(".qty-btn").forEach((b) => {
@@ -39,7 +43,9 @@
         });
       });
     }
+    itemCountEl.textContent = CartStore.getCount();
     subtotalEl.textContent = PassgroUI.fmt(CartStore.getSubtotal());
+    totalEl.textContent = PassgroUI.fmt(CartStore.getSubtotal());
     PassgroUI.refreshCartBadge();
   }
 

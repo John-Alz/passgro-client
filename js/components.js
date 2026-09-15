@@ -24,8 +24,13 @@
           </div>
         </header>`;
     }
-    const porQueHref = currentIsHome() ? "#por-que" : "index.html#por-que";
-    const contactoHref = currentIsHome() ? "#contacto" : "index.html#contacto";
+    const current = location.pathname.split("/").pop() || "index.html";
+    const isActive = (href) => (current === href ? "active" : "");
+    const links = `
+      <a href="index.html" class="${isActive("index.html")}">Home</a>
+      <a href="catalogo.html" class="${isActive("catalogo.html")}">Catálogo</a>
+      <a href="sobre-nosotros.html" class="${isActive("sobre-nosotros.html")}">Sobre nosotros</a>
+      <a href="contacto.html" class="${isActive("contacto.html")}">Contacto</a>`;
     return `
       <header>
         <div class="nav wrap">
@@ -33,19 +38,22 @@
             <img src="assets/img/logo.jpg" alt="Passgro" class="logo-img">
             Passgro
           </a>
-          <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="catalogo.html">Catálogo</a>
-            <a href="${porQueHref}">Por qué Passgro</a>
-            <a href="${contactoHref}">Contacto</a>
-          </nav>
+          <nav class="nav-links">${links}</nav>
           <div class="nav-actions">
             <div id="userSlot"></div>
             <a class="icon-btn" id="cartBtn" href="carrito.html" aria-label="Ver carrito">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L21 7H5.6"/></svg>
               <span class="badge" id="cartCount">0</span>
             </a>
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+              <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+              <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18 18 6M6 6l12 12"/></svg>
+            </button>
           </div>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+          ${links}
+          <div class="mobile-nav-account" id="mobileUserSlot"></div>
         </div>
       </header>`;
   }
@@ -61,29 +69,32 @@
                 <img src="assets/img/logo.jpg" alt="Passgro" class="logo-img">
                 Passgro
               </div>
-              <p style="font-size:.85rem; max-width:280px;">Venta directa de abonos agrícolas, sin intermediarios. Del productor a tu cultivo.</p>
-            </div>
-            <div>
-              <h4>Contacto</h4>
-              <ul>
-                <li><a href="tel:+573223025678">📞 322 302 5678</a></li>
-                <li><a href="https://wa.me/573223025678" target="_blank">WhatsApp directo</a></li>
-                <li><a href="mailto:contacto@passgro.co">contacto@passgro.co</a></li>
-                <li><a href="https://www.instagram.com/passgro?igsi=MXNrcHhjMm81NTlscw==" target="_blank">Instagram @passgro</a></li>
-              </ul>
+              <p class="footer-tagline">Conectamos productores de abonos directamente con agricultores. Fresco, justo y sostenible.</p>
             </div>
             <div>
               <h4>Enlaces</h4>
               <ul>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
                 <li><a href="${porQueHref}">Por qué Passgro</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="login.html" id="footerLogin">Iniciar sesión</a></li>
               </ul>
             </div>
+            <div>
+              <h4>Contáctanos</h4>
+              <p class="footer-contact-line"><a href="mailto:contacto@passgro.co">📧 contacto@passgro.co</a></p>
+              <p class="footer-contact-line"><a href="tel:+573223025678">📞 322 302 5678</a></p>
+              <p class="footer-contact-line">📍 Ubalá, Cundinamarca</p>
+              <div class="footer-social">
+                <a href="https://wa.me/573223025678" target="_blank" class="social-icon" aria-label="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/passgro?igsi=MXNrcHhjMm81NTlscw==" target="_blank" class="social-icon" aria-label="Instagram">📸</a>
+              </div>
+            </div>
           </div>
           <div class="footer-bottom">
-            <span>© 2026 Passgro. Todos los derechos reservados.</span>
-            <span>Ubala, Cundinamarca</span>
+            © 2026 Passgro. Todos los derechos reservados. · Hecho con 🌱 para el campo colombiano.
           </div>
         </div>
       </footer>
@@ -95,9 +106,19 @@
       <div id="toast"></div>`;
   }
 
+  function doLogout() {
+    Session.clear();
+    refreshUserSlot();
+    PassgroUI.toast("Sesión cerrada");
+    if (location.pathname.split("/").pop() === "carrito.html" || location.pathname.split("/").pop() === "checkout.html") {
+      location.href = "index.html";
+    }
+  }
+
   function refreshUserSlot() {
     const slot = document.getElementById("userSlot");
     if (!slot) return;
+    const mobileSlot = document.getElementById("mobileUserSlot");
     const user = window.Session ? window.Session.get() : null;
     if (user) {
       slot.innerHTML = `
@@ -111,18 +132,16 @@
       document.getElementById("userChipTrigger").addEventListener("click", () => {
         document.getElementById("userChip").classList.toggle("open");
       });
-      document.getElementById("logoutBtn").addEventListener("click", () => {
-        Session.clear();
-        refreshUserSlot();
-        PassgroUI.toast("Sesión cerrada");
-        if (location.pathname.split("/").pop() === "carrito.html" || location.pathname.split("/").pop() === "checkout.html") {
-          location.href = "index.html";
-        }
-      });
+      document.getElementById("logoutBtn").addEventListener("click", doLogout);
+      if (mobileSlot) {
+        mobileSlot.innerHTML = `<span>Hola, ${user.nombre.split(" ")[0]}</span><button id="mobileLogoutBtn" class="mobile-logout-btn">Cerrar sesión</button>`;
+        document.getElementById("mobileLogoutBtn").addEventListener("click", doLogout);
+      }
       const footerLogin = document.getElementById("footerLogin");
       if (footerLogin) footerLogin.textContent = "Mi cuenta";
     } else {
-      slot.innerHTML = `<a class="btn btn-outline" href="login.html">Iniciar sesión</a>`;
+      slot.innerHTML = `<a class="btn btn-dark" href="login.html">Iniciar sesión</a>`;
+      if (mobileSlot) mobileSlot.innerHTML = `<a href="login.html" class="active">Iniciar sesión</a>`;
       const footerLogin = document.getElementById("footerLogin");
       if (footerLogin) footerLogin.textContent = "Iniciar sesión";
     }
@@ -140,6 +159,21 @@
     if (footerSlot) footerSlot.innerHTML = footerHtml();
     refreshUserSlot();
     refreshCartBadge();
+
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    if (hamburgerBtn && mobileNav) {
+      hamburgerBtn.addEventListener("click", () => {
+        hamburgerBtn.classList.toggle("open");
+        mobileNav.classList.toggle("open");
+      });
+      mobileNav.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          hamburgerBtn.classList.remove("open");
+          mobileNav.classList.remove("open");
+        });
+      });
+    }
   }
 
   const TOAST_ICONS = {

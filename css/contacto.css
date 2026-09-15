@@ -1,0 +1,151 @@
+.contacto-section {
+  padding   : 56px 0 80px;
+  background: var(--blanco);
+}
+
+.contacto-grid {
+  display              : grid;
+  grid-template-columns: 1fr 1fr;
+  gap                  : 40px;
+  align-items          : start;
+  margin-top           : 32px;
+}
+
+.contacto-form-card {
+  background   : var(--blanco);
+  border       : 1px solid var(--linea);
+  border-radius: 16px;
+  padding      : 32px;
+}
+
+.contacto-form-card form {
+  display       : flex;
+  flex-direction: column;
+  gap           : 16px;
+}
+
+.contacto-form-card h3 {
+  font-size  : 1.125rem;
+  font-weight: 600;
+  color      : var(--verde-osc);
+}
+
+.contacto-form-card .field {
+  margin-bottom: 0;
+}
+
+.contacto-form-card .field textarea {
+  resize: none;
+}
+
+.contacto-form-card .btn-dark {
+  background: var(--verde);
+}
+
+.contacto-form-card .btn-dark:hover {
+  background: var(--verde-osc);
+}
+
+.contacto-info {
+  display       : flex;
+  flex-direction: column;
+  gap           : 18px;
+}
+
+.info-card {
+  display      : flex;
+  gap          : 16px;
+  background   : var(--crema);
+  border-radius: 16px;
+  padding      : 20px;
+}
+
+.info-icon {
+  font-size  : 1.8rem;
+  flex-shrink: 0;
+}
+
+.info-card h4 {
+  font-size  : .95rem;
+  font-weight: 600;
+  color      : var(--suelo);
+}
+
+.info-main {
+  font-size  : .9rem;
+  font-weight: 600;
+  color      : var(--verde);
+  margin-top : 2px;
+}
+
+.info-sub {
+  font-size : .78rem;
+  color     : #8a8168;
+  margin-top: 2px;
+}
+
+.contacto-map {
+  position     : relative;
+  border-radius: 16px;
+  overflow     : hidden;
+  height       : 180px;
+  box-shadow   : var(--sombra);
+  background   : #e8f5e2;
+}
+
+.contacto-map img {
+  width     : 100%;
+  height    : 100%;
+  object-fit: cover;
+  opacity   : .6;
+}
+
+.contacto-map-pin {
+  position       : absolute;
+  inset          : 0;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  text-align     : center;
+  gap            : 2px;
+}
+
+.contacto-map-pin div {
+  font-size: 2rem;
+}
+
+.contacto-map-pin p {
+  font-size  : .85rem;
+  font-weight: 600;
+  color      : var(--verde-osc);
+}
+
+.contacto-sent {
+  text-align: center;
+  padding   : 30px 10px;
+}
+
+.contacto-sent .sent-icon {
+  font-size    : 3rem;
+  margin-bottom: 12px;
+}
+
+.contacto-sent h3 {
+  font-size    : 1.1rem;
+  font-weight  : 600;
+  margin-bottom: 8px;
+  color        : var(--suelo);
+}
+
+.contacto-sent p {
+  color        : #5B5343;
+  font-size    : .9rem;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 860px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+}

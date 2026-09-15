@@ -20,7 +20,8 @@
   const paginationEl = document.getElementById("pagination");
   const titleEl = document.getElementById("catalogTitle");
   const countEl = document.getElementById("catalogCount");
-  let activeCat = "todos";
+  const paramCat = new URLSearchParams(location.search).get("cat");
+  let activeCat = CATS.some((c) => c.id === paramCat) ? paramCat : "todos";
   let activeSort = null; // null | "asc" | "desc" — opcional, no acumulable
   let searchTerm = "";
   let allProducts = [];
@@ -173,7 +174,7 @@
     `;
     paginationEl.innerHTML = "";
     const sort = SORTS.find((s) => s.id === activeSort);
-    Promise.all([Api.getProductos(activeCat, sort ? sort.orderAsc : undefined, searchTerm), PassgroUI.delay(1000)])
+    Promise.all([Api.getProductos(activeCat, sort ? sort.orderAsc : undefined, searchTerm), PassgroUI.delay(500)])
       .then(([list]) => {
         allProducts = list;
         currentPage = 1;

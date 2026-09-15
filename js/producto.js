@@ -62,7 +62,7 @@
         <p>Cargando producto…</p>
       </div>
     `;
-    Promise.all([Api.getProducto(id), PassgroUI.delay(1000)])
+    Promise.all([Api.getProducto(id), PassgroUI.delay(500)])
       .then(([p]) => {
         producto = p;
         render();
